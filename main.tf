@@ -25,12 +25,11 @@ resource "aws_vpc" "vpc" {
 #   }
 # }
 module "subnets" {
-  source                  = "app.terraform.io/pitt412/subnets/aws"
-  version                 = "1.0.4"
-  #for_each = var.subnets
-  vpc_id                  = aws_vpc.vpc.id
-  subnets                 = var.subnets
-  prefix                  = var.prefix
+  source  = "app.terraform.io/pitt412/subnets/aws"
+  version = "1.0.4"
+  vpc_id  = aws_vpc.vpc.id
+  subnets = var.subnets
+  prefix  = var.prefix
 }
 
 resource "aws_internet_gateway" "igw" {
@@ -68,10 +67,10 @@ module "security-groups" {
 
 
 resource "aws_instance" "server" {
-  for_each      = var.ec2
-  ami           = "ami-0230bd60aa48260c6"
-  instance_type = "t2.micro"
-  key_name      = aws_key_pair.cloud_2024.key_name
+  for_each               = var.ec2
+  ami                    = "ami-0230bd60aa48260c6"
+  instance_type          = "t2.micro"
+  key_name               = aws_key_pair.cloud_2024.key_name
   subnet_id              = module.subnets.subnet_ids[each.key]
   vpc_security_group_ids = [module.security-groups.security_group_id["Mini_proj_sg"]]
   user_data              = <<-EOF

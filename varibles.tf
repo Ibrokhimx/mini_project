@@ -16,7 +16,7 @@ variable "prefix" {
 variable "ec2" {
   type = map(object({
     server_name = string,
-    subnet_id      = string
+    subnet_id   = string
   }))
   default = {
   }

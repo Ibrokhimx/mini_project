@@ -58,17 +58,17 @@ subnets = {
 ec2 = {
   app = {
     server_name = "APP",
-    subnet_id      = ""
+    subnet_id   = ""
 
   },
   dev = {
     server_name = "DEV",
-    subnet_id      = ""
+    subnet_id   = ""
 
   },
   web = {
     server_name = "WEB",
-    subnet_id      = ""
+    subnet_id   = ""
 
   }
 
