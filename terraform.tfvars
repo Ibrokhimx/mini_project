@@ -37,7 +37,8 @@ security-groups = {
     ]
   }
 }
-subnets = {
+
+public_subnets = {
   app = {
     name              = "APP",
     cidr_block        = "10.0.1.0/24"
@@ -54,6 +55,24 @@ subnets = {
     availability_zone = "us-east-1c"
   }
 }
+private_subnets = {
+  app = {
+    name              = "APP",
+    cidr_block        = "10.0.4.0/24"
+    availability_zone = "us-east-1a"
+  },
+  dev = {
+    name              = "DEV",
+    cidr_block        = "10.0.5.0/24"
+    availability_zone = "us-east-1b"
+  },
+  web = {
+    name              = "WEB",
+    cidr_block        = "10.0.6.0/24"
+    availability_zone = "us-east-1c"
+  }
+}
+
 
 ec2 = {
   app = {

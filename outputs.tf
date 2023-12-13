@@ -1,3 +1,3 @@
 output "my_eip" {
-  value = { for k, v in aws_eip.eip : k => v.public_ip }
+  value = { for k, v in aws_eip.nat : k => v.public_ip }
 }

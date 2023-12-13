@@ -1,4 +1,14 @@
-variable "subnets" {
+variable "public_subnets" {
+  type = map(object({
+    name              = string,
+    cidr_block        = string,
+    availability_zone = string
+  }))
+
+  default = {
+  }
+}
+variable "private_subnets" {
   type = map(object({
     name              = string,
     cidr_block        = string,
